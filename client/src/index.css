@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FAFDF7;
+    color: #1C4532;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  ::selection {
+    background-color: #B7E4C7;
+    color: #1C4532;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F0FFF4;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #68D391;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #38A169;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-forest-200/50 rounded-2xl shadow-sm;
+  }
+
+  .glass-card-dark {
+    @apply bg-forest-900/80 backdrop-blur-md border border-forest-700/50 rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply bg-forest-700 hover:bg-forest-800 text-white font-display font-semibold 
+           px-6 py-3 rounded-xl transition-all duration-300 
+           hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply bg-forest-100 hover:bg-forest-200 text-forest-800 font-display font-semibold 
+           px-6 py-3 rounded-xl transition-all duration-300 
+           border border-forest-200 hover:border-forest-300;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-forest-50 text-forest-700 font-display font-medium 
+           px-4 py-2 rounded-xl transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl
+           font-body text-forest-900 placeholder:text-forest-400
+           focus:outline-none focus:border-forest-500 focus:ring-2 focus:ring-forest-200
+           transition-all duration-200;
+  }
+
+  .badge-green {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-forest-100 text-forest-700 
+           rounded-full text-sm font-medium border border-forest-200;
+  }
+
+  .stat-card {
+    @apply glass-card p-5 hover:shadow-green transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .section-heading {
+    @apply font-display font-bold text-3xl md:text-4xl text-forest-900;
+  }
+
+  .section-subheading {
+    @apply font-body text-lg text-forest-600 max-w-2xl;
+  }
+
+  .green-gradient-text {
+    @apply bg-gradient-to-r from-forest-600 via-leaf to-forest-400 bg-clip-text text-transparent;
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
