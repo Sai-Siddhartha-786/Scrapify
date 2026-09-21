@@ -8,7 +8,7 @@
     "client": "cd client && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "cd server && node seed.js",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm install && npm run build"
   },
   "devDependencies": {
     "concurrently": "^9.0.1"
